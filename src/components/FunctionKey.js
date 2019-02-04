@@ -5,11 +5,11 @@ import {
   StyleSheet,
 } from 'react-native'
 
-export default class InputKey extends Component {
+export default class FunctionKey extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>I'm the InputKey component</Text>
+        <Text>{this.props.title}</Text>
       </View>
     )
   }

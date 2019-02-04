@@ -9,7 +9,7 @@ export default class OperationKey extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>I'm the OperationKey component</Text>
+        <Text>{this.props.title}</Text>
       </View>
     )
   }

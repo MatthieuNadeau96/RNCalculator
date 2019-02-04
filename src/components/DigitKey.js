@@ -9,7 +9,7 @@ export default class DigitKey extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>I'm the DigitKey component</Text>
+        <Text>{this.props.title}</Text>
       </View>
     )
   }

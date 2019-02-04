@@ -5,11 +5,17 @@ import {
   StyleSheet,
 } from 'react-native'
 
+import DigitKey from './src/components/DigitKey'
+import InputKey from './src/components/InputKey'
+import OperationKey from './src/components/OperationKey'
+
 export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>I'm the App component</Text>
+        <DigitKey />
+        <InputKey />
+        <OperationKey />
       </View>
     )
   }

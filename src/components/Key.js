@@ -17,8 +17,6 @@ export default class DigitKey extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    width: 80,
-    height: 80,
     borderWidth: 1,
     borderColor: '#b4b4b4',
     alignItems: 'center',

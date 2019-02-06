@@ -18,7 +18,7 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.display}>
-          <Text>{displayValue}</Text>
+          <Text style={styles.displayText}>{displayValue}</Text>
         </View>
         <View style={styles.keyPad}>
           <View style={styles.functionKeys}>
@@ -56,11 +56,17 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%',
-    height: '100%',
-    flexDirection: 'column',
+  },
+  display: {
+    height: '25%',
+    alignItems: 'flex-end',
+    justifyContent: 'flex-end',
+    backgroundColor: '#b5cbff',
+  },
+  displayText: {
+    padding: 10,
+    fontSize: 100,
+    color: '#ffffff',
   },
   keyPad: {
   },
@@ -71,6 +77,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   operationKeys: {
-    flexDirection: 'row',
+    flexDirection: 'column',
   },
 })

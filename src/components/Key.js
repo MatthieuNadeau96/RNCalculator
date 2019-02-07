@@ -3,24 +3,32 @@ import {
   View,
   Text,
   StyleSheet,
+  TouchableNativeFeedback,
 } from 'react-native'
 
 export default class DigitKey extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>{this.props.title}</Text>
-      </View>
+      <TouchableNativeFeedback>
+        <View style={styles.button}>
+          <Text style={styles.buttonText}>{this.props.title}</Text>
+        </View>
+      </TouchableNativeFeedback>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    borderWidth: 1,
+  button: {
+    flex: 1,
+    borderWidth: .5,
     borderColor: '#b4b4b4',
     alignItems: 'center',
+    alignSelf: 'stretch',
     justifyContent: 'center',
-    backgroundColor: '#f2e5b4',
+  },
+  buttonText: {
+    fontSize: 30,
+    color: '#ffffff',
   },
 })

@@ -17,10 +17,10 @@ export default class DigitKey extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    borderWidth: 1,
-    borderColor: '#b4b4b4',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#f2e5b4',
+    // borderWidth: 1,
+    // borderColor: '#b4b4b4',
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    // backgroundColor: '#f2e5b4',
   },
 })

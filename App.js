@@ -17,9 +17,9 @@ export default class App extends Component {
     const { displayValue } = this.state
     return (
       <View style={styles.container}>
-        <View style={styles.display}>
-          <Text style={styles.displayText}>{displayValue}</Text>
-        </View>
+
+        <View style={styles.resultDisplay}></View>
+        <View style={styles.calculatonDisplay}></View>
         <View style={styles.keyPad}>
           <View style={styles.digitKeys}>
             <Key title={'0'} />
@@ -43,6 +43,7 @@ export default class App extends Component {
             <Key title={'='} />
           </View>
         </View>
+
       </View>
     )
   }
@@ -52,32 +53,30 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  display: {
-    height: '25%',
+  resultDisplay: {
+    flex: 2,
+  },
+  calculatonDisplay: {
     alignItems: 'flex-end',
     justifyContent: 'flex-end',
     backgroundColor: '#b5cbff',
-  },
-  displayText: {
-    padding: 10,
-    fontSize: 100,
-    color: '#ffffff',
+    flex: 1,
   },
   keyPad: {
-    height: '75%',
     backgroundColor: '#9ee0a5',
     flexDirection: 'row',
     flexWrap: 'wrap',
     padding: 5,
-    flex: 1,
-  },
-  functionKeys: {
-    flexDirection: 'row',
+    flex: 7,
   },
   digitKeys: {
+    flex: 3,
     flexDirection: 'row',
+    backgroundColor: '#ed8c8c',
   },
   operationKeys: {
+    flex: 1,
+    backgroundColor: '#8e74db',
     flexDirection: 'row',
   },
 })

@@ -21,11 +21,6 @@ export default class App extends Component {
           <Text style={styles.displayText}>{displayValue}</Text>
         </View>
         <View style={styles.keyPad}>
-          <View style={styles.functionKeys}>
-            <Key title={'AC'} />
-            <Key title={'+-'} />
-            <Key title={'%'} />
-          </View>
           <View style={styles.digitKeys}>
             <Key title={'0'} />
             <Key title={'.'} />
@@ -40,8 +35,8 @@ export default class App extends Component {
             <Key title={'9'} />
           </View>
           <View style={styles.operationKeys}>
+            <Key title={'DEL'} />
             <Key title={'/'} />
-            <Key title={'*'} />
             <Key title={'x'} />
             <Key title={'-'} />
             <Key title={'+'} />
@@ -69,6 +64,12 @@ const styles = StyleSheet.create({
     color: '#ffffff',
   },
   keyPad: {
+    height: '75%',
+    backgroundColor: '#9ee0a5',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    padding: 5,
+    flex: 1,
   },
   functionKeys: {
     flexDirection: 'row',
@@ -77,6 +78,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   operationKeys: {
-    flexDirection: 'column',
+    flexDirection: 'row',
   },
 })

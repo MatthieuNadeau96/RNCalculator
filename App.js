@@ -27,24 +27,24 @@ export default class App extends Component {
         <View style={styles.keyPad}>
           <View style={styles.digitKeys}>
             <View style={styles.btnRow}>
-              <Key title={'0'} />
-              <Key title={'.'} />
-              <Key title={'1'} />
-            </View>
-            <View style={styles.btnRow}>
-              <Key title={'2'} />
-              <Key title={'3'} />
-              <Key title={'4'} />
-            </View>
-            <View style={styles.btnRow}>
-              <Key title={'5'} />
-              <Key title={'6'} />
               <Key title={'7'} />
-            </View>
-            <View style={styles.btnRow}>
               <Key title={'8'} />
               <Key title={'9'} />
-              <Key title={'9'} />
+            </View>
+            <View style={styles.btnRow}>
+              <Key title={'4'} />
+              <Key title={'5'} />
+              <Key title={'6'} />
+            </View>
+            <View style={styles.btnRow}>
+              <Key title={'1'} />
+              <Key title={'2'} />
+              <Key title={'3'} />
+            </View>
+            <View style={styles.btnRow}>
+              <Key title={'0'} />
+              <Key title={'.'} />
+              <Key title={'='} />
             </View>
           </View>
           <View style={styles.operationKeys}>
@@ -53,7 +53,6 @@ export default class App extends Component {
             <Key title={'x'} />
             <Key title={'-'} />
             <Key title={'+'} />
-            <Key title={'='} />
           </View>
         </View>
 

@@ -6,6 +6,7 @@ import {
 } from 'react-native'
 
 import Key from './src/components/Key'
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 
 export default class App extends Component {
 
@@ -15,6 +16,12 @@ export default class App extends Component {
 
   render() {
     const { displayValue } = this.state
+    const backspace = (<FontAwesome5 name={'backspace'} size={25} />)
+    const divide = (<FontAwesome5 name={'divide'} size={25} />)
+    const times = (<FontAwesome5 name={'times'} size={25} />)
+    const plus = (<FontAwesome5 name={'plus'} size={25} />)
+    const minus = (<FontAwesome5 name={'minus'} size={25} />)
+    const equals = (<FontAwesome5 name={'equals'} size={25} />)
     return (
       <View style={styles.container}>
 
@@ -48,11 +55,11 @@ export default class App extends Component {
             </View>
           </View>
           <View style={styles.operationKeys}>
-            <Key title={'DEL'} />
-            <Key title={'/'} />
-            <Key title={'x'} />
-            <Key title={'-'} />
-            <Key title={'+'} />
+            <Key title={backspace} />
+            <Key title={divide} />
+            <Key title={times} />
+            <Key title={minus} />
+            <Key title={plus} />
           </View>
         </View>
 

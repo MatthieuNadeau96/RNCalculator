@@ -3,6 +3,8 @@ import {
   View,
   Text,
   StyleSheet,
+  TouchableNativeFeedback,
+  TouchableOpacity,
 } from 'react-native'
 
 import Key from './src/components/Key'
@@ -22,6 +24,31 @@ export default class App extends Component {
     const plus = (<FontAwesome5 name={'plus'} size={20} />)
     const minus = (<FontAwesome5 name={'minus'} size={20} />)
     const equals = (<FontAwesome5 name={'equals'} size={20} />)
+
+    let rows = []
+    let nums = [[7,8,9], [4,5,6],[1,2,3],[0,'.','=']]
+    for(let i = 0; i < 4; i++) {
+      let row = []
+      for(let j = 0; j < 3; j++) {
+        row.push(
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>{nums[i][j]}</Text>
+          </TouchableOpacity>
+        )
+      }
+      rows.push(<View style={styles.btnRow}>{row}</View>)
+    }
+
+    let operations = ['DEL', '/', '*', '-', '+']
+    let operationKeys = []
+    for(let i = 0; i < operations.length; i++) {
+      operationKeys.push(
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>{operations[i]}</Text>
+        </TouchableOpacity>
+      )
+    }
+
     return (
       <View style={styles.container}>
 
@@ -33,33 +60,10 @@ export default class App extends Component {
         </View>
         <View style={styles.keyPad}>
           <View style={styles.digitKeys}>
-            <View style={styles.btnRow}>
-              <Key title={'7'} />
-              <Key title={'8'} />
-              <Key title={'9'} />
-            </View>
-            <View style={styles.btnRow}>
-              <Key title={'4'} />
-              <Key title={'5'} />
-              <Key title={'6'} />
-            </View>
-            <View style={styles.btnRow}>
-              <Key title={'1'} />
-              <Key title={'2'} />
-              <Key title={'3'} />
-            </View>
-            <View style={styles.btnRow}>
-              <Key title={'0'} />
-              <Key title={'.'} />
-              <Key title={equals} />
-            </View>
+            {rows}
           </View>
           <View style={styles.operationKeys}>
-            <Key title={backspace} />
-            <Key title={divide} />
-            <Key title={times} />
-            <Key title={minus} />
-            <Key title={plus} />
+            {operationKeys}
           </View>
         </View>
 
@@ -107,6 +111,16 @@ const styles = StyleSheet.create({
   digitKeys: {
     flex: 3,
     backgroundColor: '#ed8c8c',
+  },
+  button: {
+    flex: 1,
+    alignItems: 'center',
+    alignSelf: 'stretch',
+    justifyContent: 'center',
+  },
+  buttonText: {
+    fontSize: 30,
+    color: '#ffffff',
   },
   operationKeys: {
     flex: 1,

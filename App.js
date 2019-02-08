@@ -16,12 +16,12 @@ export default class App extends Component {
 
   render() {
     const { displayValue } = this.state
-    const backspace = (<FontAwesome5 name={'backspace'} size={25} />)
-    const divide = (<FontAwesome5 name={'divide'} size={25} />)
-    const times = (<FontAwesome5 name={'times'} size={25} />)
-    const plus = (<FontAwesome5 name={'plus'} size={25} />)
-    const minus = (<FontAwesome5 name={'minus'} size={25} />)
-    const equals = (<FontAwesome5 name={'equals'} size={25} />)
+    const backspace = (<FontAwesome5 name={'backspace'} size={20} />)
+    const divide = (<FontAwesome5 name={'divide'} size={20} />)
+    const times = (<FontAwesome5 name={'times'} size={20} />)
+    const plus = (<FontAwesome5 name={'plus'} size={20} />)
+    const minus = (<FontAwesome5 name={'minus'} size={20} />)
+    const equals = (<FontAwesome5 name={'equals'} size={20} />)
     return (
       <View style={styles.container}>
 
@@ -51,7 +51,7 @@ export default class App extends Component {
             <View style={styles.btnRow}>
               <Key title={'0'} />
               <Key title={'.'} />
-              <Key title={'='} />
+              <Key title={equals} />
             </View>
           </View>
           <View style={styles.operationKeys}>

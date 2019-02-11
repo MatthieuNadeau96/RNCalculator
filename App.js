@@ -6,7 +6,6 @@ import {
   TouchableNativeFeedback,
 } from 'react-native'
 
-import Key from './src/components/Key'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 
 

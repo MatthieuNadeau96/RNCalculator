@@ -13,14 +13,38 @@ export default class App extends Component {
 
   state = {
     displayValue: '0',
+    calculationText: '',
+    resultText: '',
   }
 
   buttonPressed(text) {
-    alert(text)
+    if(text === '=') {
+      return calculateResult()
+    }
+    this.setState({
+      calculationText: this.state.calculationText+text
+    })
+  }
+
+  calculateResult() {
+    const text = this.state.calculationText
+  }
+
+  operationHandler(operation) {
+    switch(operation) {
+      case 'Bkspc':
+        let text = this.state.calculationText.split('')
+        text.pop()
+        this.setState({calculationText: text.join('')})
+      break
+      case 'DEL':
+        this.setState({ calculationText: ''})
+      break
+    }
   }
 
   render() {
-    const { displayValue } = this.state
+    const { displayValue, calculationText } = this.state
     const backspace = (<FontAwesome5 name={'backspace'} size={20} />)
     const divide = (<FontAwesome5 name={'divide'} size={20} />)
     const times = (<FontAwesome5 name={'times'} size={20} />)
@@ -44,11 +68,11 @@ export default class App extends Component {
       rows.push(<View style={styles.btnRow}>{row}</View>)
     }
 
-    let operations = ['DEL', '/', '*', '-', '+']
+    let operations = ['DEL','Bkspc', '/', '*', '-', '+']
     let operationKeys = []
     for(let i = 0; i < operations.length; i++) {
       operationKeys.push(
-        <TouchableNativeFeedback>
+        <TouchableNativeFeedback onPress={() => this.operationHandler(operations[i])}>
           <View style={styles.button}>
             <Text style={styles.buttonText}>{operations[i]}</Text>
           </View>
@@ -60,7 +84,7 @@ export default class App extends Component {
       <View style={styles.container}>
 
         <View style={styles.calculatonDisplay}>
-          <Text style={styles.calculationText}>11*11</Text>
+          <Text style={styles.calculationText}>{calculationText}</Text>
         </View>
         <View style={styles.resultDisplay}>
           <Text style={styles.resultText}>121</Text>

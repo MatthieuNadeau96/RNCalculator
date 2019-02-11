@@ -9,7 +9,16 @@ import {
 import Key from './src/components/Key'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 
+
+const backspace = (<FontAwesome5 name={'backspace'} size={20} />)
+const divide = (<FontAwesome5 name={'divide'} size={20} />)
+const times = (<FontAwesome5 name={'times'} size={20} />)
+const plus = (<FontAwesome5 name={'plus'} size={20} />)
+const minus = (<FontAwesome5 name={'minus'} size={20} />)
+const equals = (<FontAwesome5 name={'equals'} size={20} />)
+
 export default class App extends Component {
+
 
   state = {
     displayValue: '0',
@@ -32,7 +41,7 @@ export default class App extends Component {
 
   operationHandler(operation) {
     switch(operation) {
-      case 'Bkspc':
+      case backspace:
         let text = this.state.calculationText.split('')
         text.pop()
         this.setState({calculationText: text.join('')})
@@ -45,15 +54,9 @@ export default class App extends Component {
 
   render() {
     const { displayValue, calculationText } = this.state
-    const backspace = (<FontAwesome5 name={'backspace'} size={20} />)
-    const divide = (<FontAwesome5 name={'divide'} size={20} />)
-    const times = (<FontAwesome5 name={'times'} size={20} />)
-    const plus = (<FontAwesome5 name={'plus'} size={20} />)
-    const minus = (<FontAwesome5 name={'minus'} size={20} />)
-    const equals = (<FontAwesome5 name={'equals'} size={20} />)
 
     let rows = []
-    let nums = [[7,8,9], [4,5,6],[1,2,3],[0,'.','=']]
+    let nums = [[7,8,9], [4,5,6],[1,2,3],[0,'.', equals]]
     for(let i = 0; i < 4; i++) {
       let row = []
       for(let j = 0; j < 3; j++) {
@@ -68,7 +71,7 @@ export default class App extends Component {
       rows.push(<View style={styles.btnRow}>{row}</View>)
     }
 
-    let operations = ['DEL','Bkspc', '/', '*', '-', '+']
+    let operations = ['DEL', backspace, divide, times, minus, plus]
     let operationKeys = []
     for(let i = 0; i < operations.length; i++) {
       operationKeys.push(

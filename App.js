@@ -15,6 +15,10 @@ export default class App extends Component {
     displayValue: '0',
   }
 
+  buttonPressed(text) {
+    alert(text)
+  }
+
   render() {
     const { displayValue } = this.state
     const backspace = (<FontAwesome5 name={'backspace'} size={20} />)
@@ -30,7 +34,7 @@ export default class App extends Component {
       let row = []
       for(let j = 0; j < 3; j++) {
         row.push(
-          <TouchableNativeFeedback>
+          <TouchableNativeFeedback onPress={() => this.buttonPressed(nums[i][j])} >
             <View style={styles.button}>
               <Text style={styles.buttonText}>{nums[i][j]}</Text>
             </View>

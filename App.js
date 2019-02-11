@@ -45,10 +45,17 @@ export default class App extends Component {
         let text = this.state.calculationText.split('')
         text.pop()
         this.setState({calculationText: text.join('')})
-      break
+        break
       case 'DEL':
         this.setState({ calculationText: ''})
-      break
+        break
+      case '/':
+      case '*':
+      case '-':
+      case '+':
+        if(this.state.calculationText == "") return
+        this.setState({ calculationText: this.state.calculationText + operation})
+        break
     }
   }
 
@@ -56,7 +63,7 @@ export default class App extends Component {
     const { displayValue, calculationText } = this.state
 
     let rows = []
-    let nums = [[7,8,9], [4,5,6],[1,2,3],[0,'.', equals]]
+    let nums = [[7,8,9], [4,5,6],[1,2,3],[0,'.', '=']]
     for(let i = 0; i < 4; i++) {
       let row = []
       for(let j = 0; j < 3; j++) {
@@ -71,7 +78,7 @@ export default class App extends Component {
       rows.push(<View style={styles.btnRow}>{row}</View>)
     }
 
-    let operations = ['DEL', backspace, divide, times, minus, plus]
+    let operations = ['DEL', backspace, '/', '*', '-', '+']
     let operationKeys = []
     for(let i = 0; i < operations.length; i++) {
       operationKeys.push(

@@ -19,11 +19,14 @@ const equals = (<FontAwesome5 name={'equals'} size={20} />)
 
 export default class App extends Component {
 
-
-  state = {
-    displayValue: '0',
-    calculationText: '',
-    resultText: '',
+  constructor() {
+    super()
+    this.state = {
+      displayValue: '0',
+      calculationText: '',
+      resultText: '',
+    }
+    this.operations = ['DEL', backspace, '/', '*', '-', '+']
   }
 
   buttonPressed(text) {
@@ -37,6 +40,7 @@ export default class App extends Component {
 
   calculateResult() {
     const text = this.state.calculationText
+
   }
 
   operationHandler(operation) {
@@ -53,6 +57,8 @@ export default class App extends Component {
       case '*':
       case '-':
       case '+':
+        const lastChar = this.state.calculationText.split('').pop()
+        if(this.operations.indexOf(lastChar) > 0) return
         if(this.state.calculationText == "") return
         this.setState({ calculationText: this.state.calculationText + operation})
         break
@@ -78,13 +84,12 @@ export default class App extends Component {
       rows.push(<View style={styles.btnRow}>{row}</View>)
     }
 
-    let operations = ['DEL', backspace, '/', '*', '-', '+']
     let operationKeys = []
-    for(let i = 0; i < operations.length; i++) {
+    for(let i = 0; i < 5; i++) {
       operationKeys.push(
-        <TouchableNativeFeedback onPress={() => this.operationHandler(operations[i])}>
+        <TouchableNativeFeedback onPress={() => this.operationHandler(this.operations[i])}>
           <View style={styles.button}>
-            <Text style={styles.buttonText}>{operations[i]}</Text>
+            <Text style={styles.buttonText}>{this.operations[i]}</Text>
           </View>
         </TouchableNativeFeedback >
       )

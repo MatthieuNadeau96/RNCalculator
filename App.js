@@ -4,7 +4,6 @@ import {
   Text,
   StyleSheet,
   TouchableNativeFeedback,
-  TouchableOpacity,
 } from 'react-native'
 
 import Key from './src/components/Key'
@@ -31,9 +30,11 @@ export default class App extends Component {
       let row = []
       for(let j = 0; j < 3; j++) {
         row.push(
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>{nums[i][j]}</Text>
-          </TouchableOpacity>
+          <TouchableNativeFeedback>
+            <View style={styles.button}>
+              <Text style={styles.buttonText}>{nums[i][j]}</Text>
+            </View>
+          </TouchableNativeFeedback >
         )
       }
       rows.push(<View style={styles.btnRow}>{row}</View>)
@@ -43,9 +44,11 @@ export default class App extends Component {
     let operationKeys = []
     for(let i = 0; i < operations.length; i++) {
       operationKeys.push(
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>{operations[i]}</Text>
-        </TouchableOpacity>
+        <TouchableNativeFeedback>
+          <View style={styles.button}>
+            <Text style={styles.buttonText}>{operations[i]}</Text>
+          </View>
+        </TouchableNativeFeedback >
       )
     }
 
